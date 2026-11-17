@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Future Makers by Sprout & Season helps 18–29-year-olds learn AI-era skills, start income paths, and build in public — with a community that keeps you accountable." />
+<link rel="icon" href="data:," />
+<title>Future Makers — Landing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#081426;
+    --ink-2:#0d213f;
+    --ink-3:#12294d;
+    --green:#2ee06f;
+    --green-dark:#0e9f4e;
+    --green-ink:#075e2e;
+    --bg:#ffffff;
+    --bg-soft:#f3f6f4;
+    --surface:#ffffff;
+    --surface-2:#eef3f0;
+    --text:#0a1a30;
+    --muted:#4b5d73;
+    --line:#dce5df;
+    --line-dark:rgba(255,255,255,.14);
+    --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#071222;
+      --bg-soft:#0a1a30;
+      --surface:#0d213f;
+      --surface-2:#102845;
+      --text:#f2f7f3;
+      --muted:#a9bccd;
+      --line:#1e3a5f;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:"Archivo",system-ui,sans-serif;line-height:1.05;letter-spacing:-.02em;margin:0}
+  p{margin:0}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    min-height:52px;padding:14px 24px;border-radius:999px;
+    font-weight:800;font-size:16px;text-decoration:none;line-height:1.2;text-align:center;
+    transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .btn-green{background:var(--green);color:#04160c;box-shadow:0 10px 28px rgba(46,224,111,.28)}
+  .btn-green:hover{background:#4be884;transform:translateY(-1px)}
+  .btn-outline{border:1.5px solid var(--line-dark);color:#fff;background:rgba(255,255,255,.04)}
+  .btn-dark{background:var(--ink);color:#fff}
+  @media (prefers-color-scheme: dark){ .btn-dark{background:var(--green);color:#04160c} }
+  .btn:focus-visible, summary:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+  .hero::after{
+    content:"";position:absolute;inset:auto -120px -180px auto;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle, rgba(46,224,111,.28) 0%, rgba(46,224,111,0) 65%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+    padding:64px 0 72px;position:relative;z-index:1;
+  }
+  .brandline{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.14em;font-size:12.5px;text-transform:uppercase;color:#cfe3d6}
+  .brandline .dot{width:11px;height:11px;border-radius:3px;background:var(--green);flex:none;transform:rotate(45deg)}
+  .brandline .sep{opacity:.45;font-weight:600}
+  .hero h1{font-size:clamp(38px,6vw,64px);font-weight:900;margin:22px 0 18px}
+  .hero h1 .hl{color:var(--green)}
+  .hero .sub{font-size:clamp(16.5px,2vw,19px);color:#c7d5e4;max-width:34em}
+  .hero-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .hero-note{margin-top:14px;font-size:13.5px;color:#8fa5bd}
+  .hero-note strong{color:#dbe7f2;font-weight:700}
+
+  .hero-panel{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:22px;padding:22px}
+  .hero-panel h3{font-size:15px;letter-spacing:.02em;color:#fff;display:flex;justify-content:space-between;align-items:center}
+  .hero-panel h3 span{font-family:"Archivo",sans-serif;font-size:11.5px;font-weight:800;letter-spacing:.1em;color:var(--green);text-transform:uppercase}
+  .track-row{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line-dark)}
+  .track-row:last-of-type{border-bottom:none}
+  .track-badge{
+    flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(46,224,111,.14);color:var(--green);font-weight:900;font-size:17px;
+    font-family:"Archivo",sans-serif;
+  }
+  .track-row strong{display:block;font-size:15.5px;color:#fff}
+  .track-row small{color:#9db1c7;font-size:13.5px;line-height:1.45;display:block;margin-top:2px}
+  .panel-foot{margin-top:16px;background:rgba(46,224,111,.1);border:1px solid rgba(46,224,111,.3);border-radius:14px;padding:13px 15px;font-size:13.5px;color:#d8f5e3}
+  .panel-foot strong{color:var(--green)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+  .chip{border:1px solid var(--line-dark);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;color:#dbe7f2}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:68px 0}
+  .section-head{max-width:640px;margin-bottom:34px}
+  .kicker{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green-dark);margin-bottom:12px}
+  @media (prefers-color-scheme: dark){ .kicker{color:var(--green)} }
+  .section-head h2{font-size:clamp(28px,4vw,38px);font-weight:800}
+  .section-head p{margin-top:12px;color:var(--muted);font-size:16.5px}
+
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .card .icon{
+    width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:16px;
+    background:var(--surface-2);color:var(--green-dark);
+  }
+  @media (prefers-color-scheme: dark){ .card .icon{color:var(--green)} }
+  .card h3{font-size:19px;font-weight:800;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15px}
+  .card ul{margin:14px 0 0;padding:0;list-style:none}
+  .card ul li{padding:7px 0 7px 26px;position:relative;font-size:14.5px;color:var(--muted);border-top:1px solid var(--line)}
+  .card ul li:first-child{border-top:none}
+  .card ul li::before{content:"";position:absolute;left:2px;top:14px;width:8px;height:8px;border-radius:2px;background:var(--green);transform:rotate(45deg)}
+
+  /* ---------- GUIDE ---------- */
+  .guide{background:var(--ink);color:#fff;border-radius:26px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .guide .kicker{color:var(--green)}
+  .guide h2{font-size:clamp(26px,3.6vw,34px);font-weight:800}
+  .guide .lead{margin-top:12px;color:#c7d5e4;font-size:16px;max-width:30em}
+  .guide .price-tag{display:inline-block;margin-top:20px;background:var(--green);color:#04160c;font-weight:900;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:7px 14px}
+  .guide-list{list-style:none;margin:0;padding:0}
+  .guide-list li{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line-dark);align-items:flex-start}
+  .guide-list li:last-child{border-bottom:none}
+  .guide-list .num{flex:none;width:30px;height:30px;border-radius:9px;background:rgba(46,224,111,.15);color:var(--green);display:grid;place-items:center;font-weight:900;font-size:14px}
+  .guide-list strong{display:block;font-size:15.5px}
+  .guide-list small{color:#9db1c7;font-size:13.5px;display:block;margin-top:1px}
+  .guide .btn{margin-top:8px}
+
+  /* ---------- TRACKS ---------- */
+  .track-card{position:relative;overflow:hidden}
+  .track-letter{
+    font-family:"Archivo",sans-serif;font-weight:900;font-size:52px;line-height:1;
+    color:var(--green);margin-bottom:14px;
+  }
+  .track-card .track-tag{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .track-card h3{font-size:22px}
+  .track-first{margin-top:16px;background:var(--surface-2);border-radius:12px;padding:13px 15px;font-size:14px}
+  .track-first strong{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--green-dark);margin-bottom:4px}
+  @media (prefers-color-scheme: dark){ .track-first strong{color:var(--green)} }
+  .track-first span{color:var(--muted)}
+
+  /* ---------- MEMBERSHIP ---------- */
+  .member-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;align-items:stretch}
+  .member-card{background:var(--ink);color:#fff;border-radius:26px;padding:38px;position:relative;overflow:hidden}
+  .member-card::after{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle, rgba(46,224,111,.3) 0%, rgba(46,224,111,0) 65%)}
+  .member-card .kicker{color:var(--green)}
+  .member-card h2{font-size:clamp(26px,3.6vw,34px);font-weight:800;position:relative;z-index:1}
+  .price-row{display:flex;align-items:baseline;gap:14px;margin:20px 0 6px;flex-wrap:wrap;position:relative;z-index:1}
+  .price{font-family:"Archivo",sans-serif;font-size:52px;font-weight:900;line-height:1}
+  .price small{font-size:18px;font-weight:700;color:#c7d5e4;font-family:"Archivo",sans-serif}
+  .was{color:#8fa5bd;font-size:16px}
+  .was s{text-decoration-color:var(--green);text-decoration-thickness:2px}
+  .locked{display:inline-block;background:rgba(46,224,111,.14);border:1px solid rgba(46,224,111,.4);color:#a9f2c4;border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:800;letter-spacing:.04em}
+  .member-list{list-style:none;margin:22px 0 26px;padding:0;position:relative;z-index:1}
+  .member-list li{display:flex;gap:12px;padding:9px 0;font-size:15.5px;color:#e4edf5;align-items:flex-start}
+  .member-list svg{flex:none;margin-top:3px}
+  .member-card .btn{position:relative;z-index:1}
+  .welcome-note{margin-top:16px;font-size:14px;color:#9db1c7;position:relative;z-index:1}
+  .welcome-note strong{color:#dbe7f2}
+
+  .elite-card{border:1.5px dashed var(--line);border-radius:26px;padding:32px;background:var(--bg-soft);display:flex;flex-direction:column}
+  .elite-badge{align-self:flex-start;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:6px 12px;margin-bottom:18px}
+  .elite-card h3{font-size:23px;font-weight:800;margin-bottom:10px}
+  .elite-card p{color:var(--muted);font-size:15px}
+  .elite-card ul{margin:16px 0 0;padding:0;list-style:none}
+  .elite-card ul li{padding:7px 0 7px 26px;position:relative;font-size:14.5px;color:var(--muted)}
+  .elite-card ul li::before{content:"";position:absolute;left:2px;top:14px;width:8px;height:8px;border-radius:2px;background:var(--muted);transform:rotate(45deg);opacity:.6}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{display:grid;gap:12px;max-width:820px}
+  details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 22px}
+  summary{cursor:pointer;font-weight:800;font-size:16.5px;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:48px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:24px;font-weight:700;color:var(--green-dark);flex:none;line-height:1}
+  @media (prefers-color-scheme: dark){ summary::after{color:var(--green)} }
+  details[open ] summary::after{content:"–"}
+  details p{color:var(--muted);font-size:15px;padding:0 0 18px;max-width:44em}
+
+  /* ---------- DISCLAIMER + FOOTER ---------- */
+  .disclaimer{background:var(--bg-soft);border-top:1px solid var(--line);padding:36px 0}
+  .disclaimer p{max-width:820px;color:var(--muted);font-size:13.5px}
+  .disclaimer strong{color:var(--text)}
+  footer{background:var(--ink);color:#fff;padding:44px 0 52px}
+  .foot-brand{display:flex;align-items:center;gap:10px;font-weight:900;font-family:"Archivo",sans-serif;font-size:19px;letter-spacing:-.01em}
+  .foot-brand .dot{width:11px;height:11px;border-radius:3px;background:var(--green);transform:rotate(45deg);flex:none}
+  .foot-brand span{color:var(--green)}
+  footer .family{margin-top:14px;color:#9db1c7;font-size:14px}
+  footer .family strong{color:#dbe7f2;font-weight:700}
+  footer .fine{margin-top:22px;padding-top:20px;border-top:1px solid var(--line-dark);color:#6f87a1;font-size:12.5px;display:flex;flex-wrap:wrap;gap:8px 22px}
+
+  @media (max-width:900px){
+    .grid-4{grid-template-columns:repeat(2,1fr)}
+    .hero-grid{grid-template-columns:1fr;gap:34px;padding:48px 0 56px}
+    .guide{grid-template-columns:1fr;gap:26px;padding:30px 24px}
+    .member-grid{grid-template-columns:1fr}
+    .member-card{padding:30px 24px}
+  }
+  @media (max-width:620px){
+    .grid-4,.grid-3{grid-template-columns:1fr}
+    section{padding:52px 0}
+    .hero-cta .btn{width:100%}
+    .guide .btn{width:100%}
+    .member-card .btn{width:100%}
+    .price{font-size:44px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .btn{transition:none}
+    .btn:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="brandline"><span class="dot"></span> Future Makers <span class="sep">—</span> <span>by Sprout &amp; Season</span></div>
+        <h1>Your future won&rsquo;t wait. <span class="hl">Neither should you.</span></h1>
+        <p class="sub">Future Makers helps 18&ndash;29-year-olds learn AI-era skills, start income paths, and build in public &mdash; with a community that keeps you accountable.</p>
+        <div class="hero-cta">
+          <a class="btn btn-green" href="https://buy.stripe.com/aFadR29i45Axezbf2S7Zu0a">Join as a Founding Member &mdash; $19/mo</a>
+        </div>
+        <p class="hero-note"><strong>Founding price locked in.</strong> Regular price will be $29/month.</p>
+        <div class="chips">
+          <span class="chip">Ages 18&ndash;29</span>
+          <span class="chip">3 income tracks</span>
+          <span class="chip">Weekly training</span>
+          <span class="chip">Accountability community</span>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="The three Future Makers tracks at a glance">
+        <h3>Pick a track. Start this week. <span>Start here</span></h3>
+        <div class="track-row">
+          <div class="track-badge">A</div>
+          <div><strong>Freelancing</strong><small>Sell a skill &mdash; video editing, design, writing, automation.</small></div>
+        </div>
+        <div class="track-row">
+          <div class="track-badge">B</div>
+          <div><strong>Creator</strong><small>Build an audience on one platform first, then grow from there.</small></div>
+        </div>
+        <div class="track-row">
+          <div class="track-badge">C</div>
+          <div><strong>Digital Products</strong><small>Make it once &mdash; printables, templates, print-on-demand.</small></div>
+        </div>
+        <div class="panel-foot"><strong>Not sure yet?</strong> Start with the free Starter Guide below &mdash; it walks you through all three.</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- SOUND FAMILIAR -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Sound familiar?</p>
+        <h2>You know what you want. You just need a path &mdash; and people on it with you.</h2>
+        <p>Future Makers is built around the four things young adults say they actually want from work now.</p>
+      </div>
+      <div class="grid-4">
+        <article class="card">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M15 9.2c-.6-1-1.7-1.4-3-1.4-1.9 0-3.2 1-3.2 2.3 0 3.1 6.4 1.7 6.4 4.6 0 1.3-1.4 2.3-3.2 2.3-1.4 0-2.6-.6-3.2-1.6"/></svg></div>
+          <h3>Income</h3>
+          <p>Extra money that&rsquo;s yours &mdash; a side hustle, freelance clients, or remote work that doesn&rsquo;t depend on one employer.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13 13l-4.5 2.5L11 11z"/></svg></div>
+          <h3>Freedom</h3>
+          <p>Flexible, digital-first work &mdash; your hours, your location, your terms &mdash; instead of a schedule someone else sets.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.6 6 .7-4.4 4.1 1.2 5.9L12 16.4 6.7 19.3 7.9 13.4 3.5 9.3l6-.7z"/></svg></div>
+          <h3>Recognition</h3>
+          <p>A personal brand that shows your work &mdash; proof of what you can do that speaks before you ever walk into a room.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.6c2.3.2 4.3 1.6 5 4.4"/></svg></div>
+          <h3>Community</h3>
+          <p>People building alongside you, not just watching &mdash; sharing wins, feedback, and the push to keep going.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE GUIDE -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="guide">
+        <div>
+          <p class="kicker">Free download</p>
+          <h2>The Future Maker Starter Guide</h2>
+          <p class="lead">A free PDF that maps the whole landscape before you spend a cent &mdash; so your first move is an informed one.</p>
+          <span class="price-tag">Free PDF</span>
+          <div>
+            <a class="btn btn-green" href="future-maker-starter-guide.pdf" download>
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M4.5 20h15"/></svg>
+              Download the Starter Guide
+            </a>
+          </div>
+        </div>
+        <ul class="guide-list">
+          <li><span class="num">1</span><div><strong>The landscape</strong><small>How work is changing in an AI-first economy &mdash; and where the openings are for people starting now.</small></div></li>
+          <li><span class="num">2</span><div><strong>Three income tracks, with first steps</strong><small>Freelancing, Creator, and Digital Products &mdash; what each one involves and how to take the first step in each.</small></div></li>
+          <li><span class="num">3</span><div><strong>An AI starter kit</strong><small>The essential AI tools to learn first, and what to use each one for.</small></div></li>
+          <li><span class="num">4</span><div><strong>A 30-day starter plan</strong><small>A week-by-week plan for your first month: learn, build, share, repeat.</small></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACKS -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">The three tracks</p>
+        <h2>Three ways in. Pick one, start there.</h2>
+        <p>You don&rsquo;t need to do everything. Each track is a complete path &mdash; choose the one that fits your skills and your life right now.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card track-card">
+          <div class="track-letter">A</div>
+          <p class="track-tag">Track A</p>
+          <h3>Freelancing</h3>
+          <p>Sell a skill businesses already pay for. The fastest track to a first client, because you&rsquo;re offering something with existing demand.</p>
+          <ul>
+            <li>Video editing</li>
+            <li>Design</li>
+            <li>Writing</li>
+            <li>Automation services</li>
+          </ul>
+          <div class="track-first"><strong>First step</strong><span>Pick one service, make two samples, and offer it to ten businesses this week.</span></div>
+        </article>
+        <article class="card track-card">
+          <div class="track-letter">B</div>
+          <p class="track-tag">Track B</p>
+          <h3>Creator</h3>
+          <p>Build an audience by making things in public. Slower to start, but the audience you build becomes an asset everything else can grow from.</p>
+          <ul>
+            <li>YouTube</li>
+            <li>TikTok</li>
+            <li>Podcast</li>
+            <li>Newsletter</li>
+          </ul>
+          <div class="track-first"><strong>First step</strong><span>Choose one platform first &mdash; just one &mdash; and post consistently for 30 days.</span></div>
+        </article>
+        <article class="card track-card">
+          <div class="track-letter">C</div>
+          <p class="track-tag">Track C</p>
+          <h3>Digital Products</h3>
+          <p>Make something once and sell it many times. No inventory, no shipping &mdash; you build the product, the platforms handle the storefront.</p>
+          <ul>
+            <li>Printables</li>
+            <li>Templates</li>
+            <li>Print-on-demand</li>
+          </ul>
+          <div class="track-first"><strong>First step</strong><span>List one simple product this week. Done beats perfect &mdash; you can improve it live.</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Membership</p>
+        <h2>Go further, together.</h2>
+        <p>The guide gets you started. Membership keeps you moving &mdash; with training, blueprints, and people who notice when you go quiet.</p>
+      </div>
+      <div class="member-grid">
+        <div class="member-card">
+          <p class="kicker">Founding Members</p>
+          <h2>Future Makers Membership</h2>
+          <div class="price-row">
+            <span class="price">$19<small>/month</small></span>
+            <span class="was">Regular price <s>$29/month</s></span>
+          </div>
+          <span class="locked">Founding price &mdash; locked in for founding members</span>
+          <ul class="member-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ee06f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6"/></svg><span><strong>Weekly training</strong> &mdash; AI-era skills and income-path lessons, every week.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ee06f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6"/></svg><span><strong>Income blueprints</strong> &mdash; step-by-step plans for each of the three tracks.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ee06f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6"/></svg><span><strong>Accountability groups</strong> &mdash; small groups that check in, share progress, and keep you honest.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ee06f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6"/></svg><span><strong>The community</strong> &mdash; builders aged 18&ndash;29 learning, launching, and posting their work.</span></li>
+          </ul>
+          <a class="btn btn-green" href="https://buy.stripe.com/aFadR29i45Axezbf2S7Zu0a">Become a Founding Member &mdash; $19/mo</a>
+          <p class="welcome-note"><strong>Your welcome pack arrives by email within 24 hours</strong> of joining &mdash; with your first training, your track blueprint, and your accountability group invite.</p>
+        </div>
+        <div class="elite-card">
+          <span class="elite-badge">In development</span>
+          <h3>Future Makers Elite</h3>
+          <p>A private mastermind and coaching tier for members who are already building and want closer support.</p>
+          <ul>
+            <li>Private mastermind</li>
+            <li>Direct coaching</li>
+            <li>Small, application-based group</li>
+          </ul>
+          <p style="margin-top:auto;padding-top:20px;font-size:14px">Coming after founding members are in. Founding members will hear about it first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Questions</p>
+        <h2>Straight answers.</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Who is Future Makers for?</summary>
+          <p>Young adults aged 18&ndash;29 who want to learn AI-era skills, start an income path, and build in public &mdash; whether you&rsquo;re studying, working a job you want more from, or figuring out your next move. No experience needed; the Starter Guide and the tracks meet you where you are.</p>
+        </details>
+        <details>
+          <summary>Is this a get-rich program?</summary>
+          <p>No. Future Makers is an educational platform and a community. We teach skills, share step-by-step blueprints, and keep you accountable &mdash; we make no income guarantees, and anyone who promises you easy money is not being honest with you.</p>
+        </details>
+        <details>
+          <summary>Can I cancel anytime?</summary>
+          <p>Yes. Membership is month to month &mdash; you can cancel anytime, and you keep access until the end of the period you&rsquo;ve paid for. No lock-in contracts.</p>
+        </details>
+        <details>
+          <summary>What happens after I join?</summary>
+          <p>Your welcome pack arrives by email within 24 hours, with your first training session, the blueprint for your chosen track, and an invite to your accountability group and the community.</p>
+        </details>
+        <details>
+          <summary>Do I need to pick a track right away?</summary>
+          <p>No. Start with the free Starter Guide &mdash; it walks through all three tracks with first steps for each. Most members pick one track to start and explore the others later.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="wrap">
+    <p><strong>Honest disclaimer:</strong> Future Makers is an educational platform. We provide training, blueprints, and community support &mdash; we do not guarantee income, clients, audience growth, or any specific result. What you build depends on your work, your circumstances, and factors outside anyone&rsquo;s control. Treat every income path here as a skill to learn and a project to work at, not a promise.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><span class="dot"></span> Future Makers <span>&mdash; by Sprout &amp; Season</span></div>
+    <p class="family"><strong>Part of the Sprout &amp; Season family:</strong> Income Compass &middot; Strong After 50 &middot; Next Chapter Woman</p>
+    <div class="fine">
+      <span>For ages 18&ndash;29</span>
+      <span>Education and community &mdash; no income guarantees</span>
+      <span>Every seed has a season.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
